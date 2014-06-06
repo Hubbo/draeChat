@@ -1,0 +1,12 @@
+## Interface: 50400
+## Author: Drae
+## Title: draeChat
+## Version: 2.0
+## SavedVariables: draeChatDB
+## SavedVariablesPerCharacter: draeChatCharDB
+## OptionalDeps: draeFrames
+## X-Embeds: LibChatAnims
+
+libs\libs.xml
+media\media.xml
+core.lua
