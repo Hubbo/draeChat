@@ -1131,8 +1131,9 @@ end
 
 --]]
 Chat.OnInitialize = function(self)
-	self.db = LibStub("AceDB-3.0"):New("draeUICharDB")["profile"]	-- Pull the profile specifically
-	
+	self.charSettings = LibStub("AceDB-3.0"):New("draeChatCharDB")	-- Pull the profile specifically
+
+	self.db = self.charSettings.profile
 	self.db.ChatEditHistory = self.db.ChatEditHistory or {}
 	self.db.ChatLog = self.db.ChatLog or {}
 end
