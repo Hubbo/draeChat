@@ -991,7 +991,7 @@ do
 
 		if tab.conversationIcon then
 			tab.conversationIcon:ClearAllPoints()
-			tab.conversationIcon:Point("RIGHT", tab.text, "LEFT", -1, 0)
+			tab.conversationIcon:SetPoint("RIGHT", tab.text, "LEFT", -1, 0)
 		end
 
 		frame:SetClampRectInsets(0, 0, 0, 0)
@@ -1003,8 +1003,8 @@ do
 		editbox:SetAltArrowKeyMode(false)
 
 		editbox:ClearAllPoints()
-		editbox:Point("BOTTOMLEFT",  frame, "TOPLEFT",  -5, 22)
-		editbox:Point("BOTTOMRIGHT", frame, "TOPRIGHT", 10, 22)
+		editbox:SetPoint("BOTTOMLEFT",  frame, "TOPLEFT",  -5, 22)
+		editbox:SetPoint("BOTTOMRIGHT", frame, "TOPRIGHT", 10, 22)
 
 		self:SecureHook(editbox, "AddHistoryLine", "ChatEdit_AddHistory")
 
@@ -1118,8 +1118,8 @@ Chat.PositionChat = function(self, override)
 
 		if (id ~= 2 and not (id > NUM_CHAT_WINDOWS)) then
 			chat:ClearAllPoints()
-			chat:Point("BOTTOMLEFT", UIParent, "BOTTOMLEFT", 5, 10)
-			chat:Size(450, 175)
+			chat:SetPoint("BOTTOMLEFT", UIParent, "BOTTOMLEFT", 5, 10)
+			chat:SetSize(450, 175)
 			FCF_SavePositionAndDimensions(chat)
 		end
 	end
@@ -1239,16 +1239,16 @@ Chat.OnEnable = function(self)
 	frame:SetBackdropColor(0, 0, 0, 1)
 	frame:SetFrameStrata("DIALOG")
 	frame:EnableMouse(true)
-	frame:Point("LEFT", 5, 10)
-	frame:Height(400)
-	frame:Width(500)
+	frame:SetPoint("LEFT", 5, 10)
+	frame:SetHeight(400)
+	frame:SetWidth(500)
 	frame:Hide()
 
 	tinsert(UISpecialFrames, "CopyChatFrame")
 
 	local scrollArea = CreateFrame("ScrollFrame", "CopyChatScrollFrame", frame, "UIPanelScrollFrameTemplate")
-	scrollArea:Point("TOPLEFT", 13, -30)
-	scrollArea:Point("BOTTOMRIGHT", -30, 13)
+	scrollArea:SetPoint("TOPLEFT", 13, -30)
+	scrollArea:SetPoint("BOTTOMRIGHT", -30, 13)
 
 	local editBox = CreateFrame("EditBox", "CopyChatFrameEditBox", frame)
 	editBox:SetMultiLine(true)
@@ -1256,14 +1256,14 @@ Chat.OnEnable = function(self)
 	editBox:EnableMouse(true)
 	editBox:SetAutoFocus(true)
 	editBox:SetFontObject(ChatFontNormal)
-	editBox:Width(450)
-	editBox:Height(270)
+	editBox:SetWidth(450)
+	editBox:SetHeight(270)
 	editBox:SetScript("OnEscapePressed", function() frame:Hide() end)
 
 	scrollArea:SetScrollChild(editBox)
 
 	local close = CreateFrame("Button", "CopyChatFrameCloseButton", frame, "UIPanelCloseButton")
-	close:Point("TOPRIGHT", 0, -1)
+	close:SetPoint("TOPRIGHT", 0, -1)
 
 	StaticPopupDialogs.URL_COPY_DIALOG = {
 		text = "URL",
@@ -1286,8 +1286,8 @@ Chat.OnEnable = function(self)
 
 			local button2 = self.button2 or _G[self:GetName().."Button2"]
 			button2:ClearAllPoints()
-			button2:Point("TOP", editBox, "BOTTOM", 0, -6)
-			button2:Width(150)
+			button2:SetPoint("TOP", editBox, "BOTTOM", 0, -6)
+			button2:SetWidth(150)
 
 			currentURL = nil
 		end,
